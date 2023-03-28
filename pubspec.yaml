@@ -39,6 +39,8 @@ dependencies:
   bloc:
   flutter_bloc:
   http:
+  equatable: ^2.0.5
+#  camera: ^0.10.3+2
 
 dev_dependencies:
   flutter_test:

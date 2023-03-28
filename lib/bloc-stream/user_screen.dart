@@ -40,7 +40,8 @@ class UserScreen extends StatelessWidget {
                 return const Center(child: CircularProgressIndicator());
               case ConnectionState.done:
                 if (snapshot.hasError) {
-                  return Text('There was an error : ${snapshot.error}');
+                  return Center(
+                      child: Text(snapshot.error.toString().split(':').last));
                 }
                 List<User>? users =
                     snapshot.data == null ? null : snapshot.data as List<User>;

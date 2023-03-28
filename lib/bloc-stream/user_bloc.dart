@@ -12,6 +12,7 @@ class UserBLoC {
 
   Stream<int> get userCounter => _userCounter.stream;
 
+  ///===============to count the total length
   UserBLoC() {
     usersList.listen((list) {
       print('length in constructor=======${list?.length}');
