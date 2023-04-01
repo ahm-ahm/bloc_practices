@@ -41,6 +41,7 @@ dependencies:
   http:
   equatable: ^2.0.5
 #  camera: ^0.10.3+2
+  dio:
 
 dev_dependencies:
   flutter_test:

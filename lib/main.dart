@@ -20,6 +20,8 @@ import 'bottom-navigation-bar/navigation_bloc.dart';
 import 'counter-app-using-streams/counter_bloc_stream_screen.dart';
 import 'counter-using_bloc-stream/counter_bloc_stream_screen.dart';
 import 'custom_stream/customStreamScreen.dart';
+import 'dio-internet/my_data_bloc.dart';
+import 'dio-internet/data_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -36,13 +38,14 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: MultiBlocProvider(providers: [
-        BlocProvider<DataBloc>(create: (_) => DataBloc()),
-        BlocProvider<CounterCubit>(create: (_) => CounterCubit()),
-        BlocProvider<IncrementBloc>(create: (_) => IncrementBloc()),
-        BlocProvider<RadioBloc>(create: (_) => RadioBloc()),
-        BlocProvider<NavigationbarBloc>(create: (_) => NavigationbarBloc()),
-        BlocProvider<NavigationBloc>(create: (_) => NavigationBloc()),
-      ], child: CustomBottomNavigation()),
+        // BlocProvider<DataBloc>(create: (_) => DataBloc()),
+        // BlocProvider<CounterCubit>(create: (_) => CounterCubit()),
+        // BlocProvider<IncrementBloc>(create: (_) => IncrementBloc()),
+        // BlocProvider<RadioBloc>(create: (_) => RadioBloc()),
+        // BlocProvider<NavigationbarBloc>(create: (_) => NavigationbarBloc()),
+        // BlocProvider<NavigationBloc>(create: (_) => NavigationBloc()),
+        BlocProvider<MyDataBloc>(create: (_) => MyDataBloc()),
+      ], child: const DataScreen()),
     );
   }
 }
