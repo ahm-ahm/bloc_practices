@@ -1,3 +1,4 @@
+
 import 'package:bloc/bloc.dart';
 import 'package:bloc_practice/dio-internet/web-service/web-service.dart';
 import 'package:dio/dio.dart';
@@ -5,16 +6,22 @@ import 'package:dio/dio.dart';
 class MyDataBloc extends Cubit<DataEvent> {
   MyDataBloc() : super(Initial());
 
-// final _sharedWebService=WebServices
   getData() async {
     if (state is Data) return;
     emit(Loading());
     try {
       final response = await WebServices.getData();
       if (response is DioError) {
-        print('exception is =====================$response');
-        if (response.toString().contains('connection timeout')) {
+        print('exception is =====================${response.error}');
+
+        if( response.error==null){
+          print('error of socket ${response.error}');
           emit(Error(exception: Exception('No Internet connection')));
+
+        }
+       else
+         if (response.toString().contains('connection timeout')) {
+          emit(Error(exception: Exception(response.toString())));
         } else {
           emit(Error(exception: Exception('Something went wrong')));
         }
